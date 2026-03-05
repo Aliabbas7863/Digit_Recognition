@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✏️ Digit Recognition</h1>
+            <p>Draw a digit (0-9) on the canvas and the AI will recognize it!</p>
+        </header>
+
+        <div class="main-content">
+            <div class="canvas-section">
+                <h2>Draw Here</h2>
+                <canvas id="drawingCanvas" width="280" height="280"></canvas>
+                <div class="canvas-buttons">
+                    <button id="clearBtn" class="btn btn-clear">Clear</button>
+                    <button id="predictBtn" class="btn btn-predict">Predict</button>
+                </div>
+            </div>
+
+            <div class="result-section">
+                <h2>Result</h2>
+                <div id="resultContainer" class="result-container hidden">
+                    <div class="digit-display">
+                        <span id="digitResult">?</span>
+                    </div>
+                    <div class="confidence-info">
+                        <p><strong>Predicted Digit:</strong> <span id="digitText">-</span></p>
+                        <p><strong>Confidence:</strong> <span id="confidenceText">-</span></p>
+                    </div>
+                    <div class="probabilities">
+                        <h3>Confidence Scores:</h3>
+                        <div id="probabilityBars"></div>
+                    </div>
+                </div>
+                <div id="errorContainer" class="error-container hidden">
+                    <p id="errorText"></p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Powered by TensorFlow & Flask</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
